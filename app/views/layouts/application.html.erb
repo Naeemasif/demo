@@ -1,21 +1,39 @@
+
+
+<!DOCTYPE html>
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Demo</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<% if user_signed_in? %>
-    Signed in as <%= current_user.email %>. Not you?
-    <p>you were lasst loged in at :<%= current_user.last_sign_in_at %>. Not you?</p>
-    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-  <% end %>
-    </div>
-<%= yield %>
+  <head>
+    <title>Demo App</title>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                          <div class="container">
+                               <%= render 'layouts/navigation' %>
 
-</body>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="hero-unit">
+                    </div>
+
+    <main role="main">
+      <div class="container">
+        <div class="content">
+           <div class="row">
+            <div class="span12">
+              <%= render 'layouts/messages' %>
+              <%= yield %>
+            </div>
+          </div>
+          <footer>
+          </footer>
+        </div>
+      </div>
+    </main>
+  </body>
 </html>
