@@ -9,22 +9,27 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
-  <div class="container">
-            <h1><a href="#">Online Shopping</a></h1>
-                        <div class="navbar">
-                            <div class="navbar-inner">
-                            <div class="container">
-                                <%= render 'layouts/navigation' %>
-                            </div>
-                            </div>
-                         </div>
+  <body id="store" >
+<div class="container">
+
+                        <div id="banner" >
+                          <%= image_tag("logo.png") %>
+                          <%= @page_title || "Pragmatic Bookshelf" %>
+                        </div>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container">
+        <%= render 'layouts/navigation' %>
+      </div>
+    </div>
+  </div>
+
 
             <div class="row">
                       <div class="span3">
                             <ul class="nav nav-list">
                                 <li class="nav-header">What we are?</li>
-                                <li class="active"><a href="#">Home</a></li>
+                                <li ><a href="#">Home</a></li>
                                 <li><a href="#">Our Clients</a></li>
                                 <li><a href="#">Our Services</a></li>
                                 <li><a href="#">About Us</a></li>
@@ -37,7 +42,6 @@
                                 <li><a href="#">Gadgetic World</a></li>
                             </ul>
                       </div>
-
                       <div class="span9">
                         <%= render 'layouts/messages' %>
                           <%= yield %>
