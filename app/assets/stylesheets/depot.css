@@ -112,7 +112,7 @@
 #store  .entry {
   overflow: auto;
   margin-top: 1em;
-  border-bottom: 1px dotted #77d;
+  border-bottom: 3px dotted #77d;
 }
 
 #store  .title {
@@ -121,7 +121,7 @@
 }
 
 #store .entry img {
-  width: 80px;
+  width: 100px;
   margin-right: 5px;
   margin-bottom: 5px;
   float: left;
@@ -166,4 +166,13 @@
 #store .total_line .total_cell {
     font-weight: bold;
     border-top: 1px solid #595;
+}
+#cart, #cart table {
+    font-size: medium;
+    color: #000000;
+}
+#cart table {
+    border-top : 2px dotted #595;
+    border-bottom: 2px dotted #595;
+    margin-bottom: 10px;
 }

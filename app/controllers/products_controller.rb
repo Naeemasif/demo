@@ -1,15 +1,20 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_filter :admin_required
 
   # GET /products
   # GET /products.json
   def index
     @products = Product.all
-  end
+end
 
   # GET /products/1
   # GET /products/1.json
   def show
+    @product = Product.find(params[:id])
+      respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @product }
+    end
   end
 
   # GET /products/new
@@ -19,14 +24,14 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    @product = Product.find(params[:id])
   end
 
   # POST /products
   # POST /products.json
   def create
     @product = Product.new(product_params)
-
-    respond_to do |format|
+   respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render action: 'show', status: :created, location: @product }
@@ -40,6 +45,7 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+    @product = Product.find(params[:id])
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
@@ -54,10 +60,13 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
+    @product = Product.find(params[:id])
+    if @product.present?
     @product.destroy
     respond_to do |format|
       format.html { redirect_to products_url }
       format.json { head :no_content }
+    end
     end
   end
 

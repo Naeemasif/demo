@@ -1,3 +1,4 @@
+
 <%- model_class = Product -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
@@ -8,6 +9,7 @@
       <tr>
         <td>
           <%= image_tag(product.image_url, :class => 'list_image' ) %>
+          <span class="price"><%= number_to_currency(product.price) %></span>
         </td>
         <td class="list_description" >
           <dl>
@@ -27,3 +29,4 @@
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")), new_product_path, :class => 'btn btn-primary' %>
+
